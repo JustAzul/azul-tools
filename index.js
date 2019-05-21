@@ -1,6 +1,7 @@
 const Log = require('./components/Logger.js');
 const fs = require('./components/FileStore.js');
 const helper = require('azul-helper');
+const Tester = require('./components/Tester.js');
 
 module.exports = {
     Log: Log,
@@ -12,5 +13,6 @@ module.exports = {
     isURL: helper.isURL,
     GetSteamID64FromURL: helper.GetSteamID64FromURL,
     isSteamID64: helper.isSteamID64,
-    formatNumber: helper.formatNumber
+    formatNumber: helper.formatNumber,
+    Tester: Tester
 }
