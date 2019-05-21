@@ -1,0 +1,19 @@
+{
+  "name": "azul-tools",
+  "version": "1.0.9",
+  "description": "",
+  "main": "FileStore.js",
+  "keywords": [],
+  "author": "Azul",
+  "license": "ISC",
+  "dependencies": {
+    "azul-helper": "^1.0.3",
+    "colour": "^0.7.1",
+    "graceful-fs": "^4.1.15",
+    "mkdirp": "^0.5.1",
+    "moment": "^2.24.0"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}
