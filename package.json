@@ -1,13 +1,17 @@
 {
   "name": "azul-tools",
-  "version": "1.0.9",
-  "description": "",
-  "main": "FileStore.js",
+  "version": "1.0.10",
+  "description": "Some tools that i use in my bot/projects..",
+  "main": "index.js",
   "keywords": [],
-  "author": "Azul",
-  "license": "ISC",
+  "author": "https://steamcommunity.com/profiles/76561198177999769",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JustAzul/azul-tools.git"
+  },
+  "license": "MIT",
   "dependencies": {
-    "azul-helper": "^1.0.3",
+    "azul-helper": "^1.0.7",
     "colour": "^0.7.1",
     "graceful-fs": "^4.1.15",
     "mkdirp": "^0.5.1",
