@@ -11,7 +11,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "azul-helper": "^1.0.7",
+    "azul-helper": "^1.1.0",
     "colour": "^0.7.1",
     "graceful-fs": "^4.1.15",
     "mkdirp": "^0.5.1",

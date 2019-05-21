@@ -11,6 +11,7 @@ module.exports = {
     sleep: helper.sleep,
     TimeStamp: helper.TimeStamp,
     isURL: helper.isURL,
+    isTradeOfferURL: helper.isTradeOfferURL,
     GetSteamID64FromURL: helper.GetSteamID64FromURL,
     isSteamID64: helper.isSteamID64,
     formatNumber: helper.formatNumber,
