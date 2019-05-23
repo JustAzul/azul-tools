@@ -14,6 +14,7 @@ module.exports = {
     isTradeOfferURL: helper.isTradeOfferURL,
     GetSteamID64FromURL: helper.GetSteamID64FromURL,
     isSteamID64: helper.isSteamID64,
+    isValidSteamID: helper.isValidSteamID,
     formatNumber: helper.formatNumber,
     Tester: Tester
 }
