@@ -40,7 +40,7 @@ async function storeFile(filePath, content, f = 'a') {
                 return resolve(storeFile(...arguments));
             }
 
-            Log.Debug(`Failed to store "${filePath}", with ${err} trying again in a second..`);
+            Log.Debug(`Failed to create path '${filePath}', trying again in a sec => ${err}`);
 
             return setTimeout(() => {
                 resolve(storeFile(...arguments));
@@ -57,7 +57,7 @@ function createPath(Path) {
             if (!err) return resolve();
             //if (err.code == "EEXIST") return resolve();
 
-            Log.Debug(`Failed to create path '${Path}', with ${err} trying again in a second..`);
+            Log.Debug(`Failed to create path '${Path}', trying again in a sec => ${err}`);
 
             return setTimeout(() => {
                 resolve(createPath(...arguments));
