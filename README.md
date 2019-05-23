@@ -76,7 +76,7 @@ Safe load a JSON file and parse it, if file doesn't exists, or if it fails to pa
 #### Log.Debug(String, json, DebugMode) `grey`
 #### Log.Error(String) `red`
 
-Smart use of [`storeFile()`](#storefilefilepath-filecontent-flag), [`TimeStamp()`](#timestampdate) and `colour module` to save logs, with smooth organization by dates, times and sections
+Smart use of [`storeFile()`](#storefilefilepath-filecontent-flag), [`TimeStamp()`](#timestampdate) and [`colors.js`](https://github.com/Marak/colors.js) to save logs, with smooth organization by dates, times and sections
 * `String` Log message you want to display on the console, and store.
 * `json` If you passing a JSON content, set to true, it will use `JSON.stringify()` on `String`.
 * `DebugMode` True if you want the console to display the message, false otherwise, but even if false, it will save the logs.
