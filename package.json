@@ -1,6 +1,6 @@
 {
   "name": "azul-tools",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Some tools that i use in my bot/projects..",
   "main": "index.js",
   "keywords": [],
@@ -11,7 +11,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "azul-helper": "^1.1.0",
+    "azul-helper": "^1.1.1",
     "colour": "^0.7.1",
     "graceful-fs": "^4.1.15",
     "mkdirp": "^0.5.1",
