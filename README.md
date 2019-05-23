@@ -53,6 +53,10 @@ Checks if str is a valid valid url, by returning true or false
 Checks if str is a valid trade offer url, by returning true or false
 * `str` desired string to do the magic
 
+### isValidSteamID(str)
+Checks if str is a valid SteamID, by returning true or false
+* `str` desired string to do the magic
+
 ### isSteamID64(str)
 Checks if str is a SteamID64, by returning true or false
 * `str` desired string to do the magic
