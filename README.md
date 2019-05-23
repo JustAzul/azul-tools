@@ -76,14 +76,14 @@ Safe load a JSON file and parse it, if file doesn't exists, or if it fails to pa
 #### Log.Debug(String, json, DebugMode) `grey`
 #### Log.Error(String) `red`
 
-Smart use of `storeFile()`, `TimeStamp()` and `colour module` to save logs, with smooth organization by dates, times and sections
+Smart use of [`storeFile()`](#storefilefilepath-filecontent-flag), [`TimeStamp()`](#timestampdate) and `colour module` to save logs, with smooth organization by dates, times and sections
 * `String` Log message you want to display on the console, and store.
 * `json` If you passing a JSON content, set to true, it will use `JSON.stringify()` on `String`.
 * `DebugMode` True if you want the console to display the message, false otherwise, but even if false, it will save the logs.
 
 ### storeChatData(UserID64, Message, Bot, server_timestamp)
 
-Smart use of `storeFile()` and `TimeStamp()` to save SteamChat logs, with smooth organization by dates, times, and SteamIDS.
+Smart use of [`storeFile()`](#storefilefilepath-filecontent-flag) and [`TimeStamp()`](#timestampdate) to save SteamChat logs, with smooth organization by dates, times, and SteamIDS.
 * `UserID64` is the SteamID64 of user
 * `Message` is the message content
 * `Bot` True if its a bot message (bot has sent the message), false if otherwise (if null or ommited, will be false)
