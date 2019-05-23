@@ -71,10 +71,10 @@ Safe load a JSON file and parse it, if file doesn't exists, or if it fails to pa
 * `filepath` obvious, the filepath..
 
 ### Log(String) `blue`
-### Log.Warn(String) `yellow`
-### Log.Trade(String) `green`
-### Log.Debug(String, json, DebugMode) `grey`
-### Log.Error(String) `red`
+#### Log.Warn(String) `yellow`
+#### Log.Trade(String) `green`
+#### Log.Debug(String, json, DebugMode) `grey`
+#### Log.Error(String) `red`
 
 Smart use of `storeFile()`, `TimeStamp()` and `colour module` to save logs, with smooth organization by dates, times and sections
 * `String` Log message you want to display on the console, and store.
