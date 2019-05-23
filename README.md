@@ -1,4 +1,32 @@
+# Azul Tools 
+
+Some tools that i use in my bot/projects..
+
+### Prerequisites
+
+I recommend to try this only in node V10/LTS or above.
+
+### Installing
+
+```
+npm install azul-tools
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Almost every Method returns a promise
+* thats all folks
+
 ## Methods
+
+### Log(String)
+
+Smart use of `storeFile()`, `TimeStamp()` and `colour module` to save logs, with smooth organization by dates, times and sections
+* `String` Log message you want to display on the console, and store.
 
 ### storeChatData(UserID64, Message, Bot, server_timestamp)
 
