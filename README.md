@@ -1,6 +1,8 @@
 # Azul Tools 
-
-Some tools that i use in my bot/projects..
+### Some tools that i use in my bot/projects..
+[![npm version](https://img.shields.io/npm/v/azul-tools.svg)](https://npmjs.com/package/steam-user)
+[![npm downloads](https://img.shields.io/npm/dm/azul-tools.svg)](https://npmjs.com/package/steam-user)
+[![license](https://img.shields.io/npm/l/azul-tools.svg)](https://github.com/JustAzul/azul-tools/blob/master/LICENSE)
 
 ### Prerequisites
 
