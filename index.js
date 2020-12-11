@@ -16,5 +16,6 @@ module.exports = {
     isSteamID64: helper.isSteamID64,
     isValidSteamID: helper.isValidSteamID,
     formatNumber: helper.formatNumber,
+    SplitArray: helper.SplitArray,
     Tester: Tester
 }
