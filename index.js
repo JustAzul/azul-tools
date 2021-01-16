@@ -1,21 +1,23 @@
 const Log = require('./components/Logger.js');
-const fs = require('./components/FileStore.js');
-const helper = require('azul-helper');
+const {storeFile, storeChatData} = require('./components/FileStore.js');
+const {readJSON, sleep, TimeStamp, isURL, isTradeOfferURL, GetSteamID64FromURL, isSteamID64, isValidSteamID, formatNumber, SplitArray} = require('azul-helper');
 const Tester = require('./components/Tester.js');
+const Cache = require('./components/Cache.js');
 
 module.exports = {
     Log: Log,
-    storeFile: fs.storeFile,
-    storeChatData: fs.storeChatData,
-    readJSON: helper.readJSON,
-    sleep: helper.sleep,
-    TimeStamp: helper.TimeStamp,
-    isURL: helper.isURL,
-    isTradeOfferURL: helper.isTradeOfferURL,
-    GetSteamID64FromURL: helper.GetSteamID64FromURL,
-    isSteamID64: helper.isSteamID64,
-    isValidSteamID: helper.isValidSteamID,
-    formatNumber: helper.formatNumber,
-    SplitArray: helper.SplitArray,
+    storeFile: storeFile,
+    storeChatData: storeChatData,
+    readJSON: readJSON,
+    sleep: sleep,
+    TimeStamp: TimeStamp,
+    isURL: isURL,
+    isTradeOfferURL: isTradeOfferURL,
+    GetSteamID64FromURL: GetSteamID64FromURL,
+    isSteamID64: isSteamID64,
+    isValidSteamID: isValidSteamID,
+    formatNumber: formatNumber,
+    SplitArray: SplitArray,
+    Cache: Cache,
     Tester: Tester
 }
