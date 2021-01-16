@@ -1,6 +1,6 @@
 {
   "name": "azul-tools",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Some tools that i use in my bot/projects..",
   "main": "index.js",
   "keywords": [],
@@ -18,6 +18,6 @@
     "moment": "^2.24.0"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=12.0.0"
   }
 }
