@@ -1,6 +1,6 @@
 {
   "name": "azul-tools",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Some tools that i use in my bot/projects..",
   "main": "index.js",
   "keywords": [],
