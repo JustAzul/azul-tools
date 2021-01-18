@@ -1,6 +1,6 @@
-const fs = require('graceful-fs');
-const moment = require('moment');
-const path = require('path');
+const {writeFile} = require('graceful-fs');
+const {duration} = require('moment');
+const {normalize, dirname:GetDirName} = require('path');
 const mkdirp = require('mkdirp');
 const Log = require('./Logger.js');
 
@@ -23,7 +23,7 @@ async function storeChatData(UserID64, Message, Bot = false, server_timestamp) {
 
 //a = append, w = write
 async function storeFile(filePath, content, f = 'a') {
-    filePath = await path.normalize(`${process.cwd()}/${filePath}`);
+    filePath = await normalize(`${process.cwd()}/${filePath}`);
 
     const o = {
         "flag": f
@@ -31,11 +31,11 @@ async function storeFile(filePath, content, f = 'a') {
 
     return new Promise(resolve => {
 
-        fs.writeFile(filePath, content, o, async err => {
+        writeFile(filePath, content, o, async err => {
             if (!err) return resolve();
 
             if (err.code == "ENOENT") {
-                const dirname = await path.dirname(filePath);
+                const dirname = await GetDirName(filePath);
                 await createPath(dirname);
                 return resolve(storeFile(...arguments));
             }
@@ -44,11 +44,10 @@ async function storeFile(filePath, content, f = 'a') {
 
             return setTimeout(() => {
                 resolve(storeFile(...arguments));
-            }, moment.duration(2, 'seconds'))
+            }, duration(2, 'seconds'))
 
         });
     })
-
 }
 
 function createPath(Path) {
@@ -61,7 +60,7 @@ function createPath(Path) {
 
             return setTimeout(() => {
                 resolve(createPath(...arguments));
-            }, moment.duration(2, 'seconds'))
+            }, duration(2, 'seconds'))
         })
     })
 }
