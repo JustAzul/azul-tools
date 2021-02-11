@@ -14,6 +14,6 @@ async function Get(KeyID = "") {
 }
 
 module.exports = {
-    Get: Get,
-    Set: Set
+    Get,
+    Set
 };
