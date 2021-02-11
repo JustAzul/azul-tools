@@ -1,7 +1,6 @@
 const colour = require('colour');
-const {storeFile} = require('./FileStore.js');
 const {EOL} = require("os"); 
-const {TimeStamp} = require('azul-helper');
+const {TimeStamp, storeFile} = require('azul-helper');
 
 async function _Log(log, type = "info", json = false, DebugMode = true) {
 
@@ -70,7 +69,7 @@ async function LogError(log) {
 async function storeLogData(logData, type) {
     const BaseDir = "history";
     const ts = await TimeStamp();
-    const file = BaseDir + `/${type}/${ts.Date}.log`
+    const file = BaseDir + `/${type}/${ts.Date}.log`;
     logData += EOL; //Breakline
     storeFile(file, logData, "a"); //appending
 }
