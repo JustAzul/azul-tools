@@ -1,6 +1,6 @@
 {
   "name": "azul-tools",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "Some tools that i use in my projects..",
   "main": "index.js",
   "types": "index.d.ts",
@@ -18,7 +18,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "azul-helper": "^2.0.5",
+    "azul-helper": "^1.9.1",
     "colour": "^0.7.1",
     "moment": "^2.24.0"
   },
