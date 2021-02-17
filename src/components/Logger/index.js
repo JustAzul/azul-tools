@@ -1,4 +1,5 @@
 const {Log, LogError, Trade, Warn, Debug} = require('./source');
+
 module.exports = Log;
 module.exports.Error = LogError;
 module.exports.Trade = Trade;

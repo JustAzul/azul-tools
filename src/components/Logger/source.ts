@@ -1,15 +1,15 @@
 const colour = require('colour');
 
 import { EOL } from 'os';
-import {TimeStamp, storeFile} from 'azul-helper';
+import Helper from 'azul-helper';
 
 export type LogTypes = "info" | "warn" | "trade" | "debug" | "error";
 
 async function storeLogData(logData: string, type: LogTypes , BaseDir: string = "history"): Promise<void> {
-    const ts = await TimeStamp();
+    const ts = await Helper.TimeStamp();
     const file = BaseDir + `/${type}/${ts.Date}.log`;
     logData += EOL; //Breakline
-    storeFile(file, logData, "a"); //appending
+    Helper.storeFile(file, logData, "a"); //appending
 }
 
 async function _Log(log: string | JSON, type: LogTypes = "info", json: Boolean = false, DebugMode: Boolean = true) {
@@ -17,7 +17,7 @@ async function _Log(log: string | JSON, type: LogTypes = "info", json: Boolean =
     const Label = type.toUpperCase();
     const LogType: LogTypes = type === "warn" ? "info" : type;
 
-    const ts = await TimeStamp();
+    const ts = await Helper.TimeStamp();
     const time = ts.Time;
     const datetime = `${ts.Date} ${time}`;
 

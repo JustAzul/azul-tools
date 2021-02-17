@@ -1,2 +1,1 @@
-const dist = require('./dist');
-module.exports = dist.default;
+module.exports = require('./dist').default;
