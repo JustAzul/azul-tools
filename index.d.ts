@@ -2,6 +2,15 @@
 import { PathLike } from 'graceful-fs';
 import type {Mode, Options} from 'mkdirp';
 
+declare type Log = (log: string) => Promise<void>;
+
+declare interface Loggers {
+    Error: (log: string) => Promise<void>,
+    Trade: (log: string) => Promise<void>,
+    Warn: (log: string) => Promise<void>,
+    Debug: (log: string, json?: boolean, DebugMode?: boolean) => Promise<void>
+}
+
 declare namespace AzulHelper {
 
     export function TimeStamp(date?: Date): Promise<{
@@ -24,12 +33,7 @@ declare namespace AzulHelper {
     export function WriteFile(filePath: PathLike, content: string | NodeJS.ArrayBufferView, flag?: string): Promise<void>;
     export function storeChatData(UserID64: string, Message: string, Bot?: boolean, server_timestamp?: string, BaseDir?: string): Promise<void>;
 
-    export const Log: ((log: string) => Promise<void>) | {
-        Error: (log: string) => Promise<void>,
-        Trade: (log: string) => Promise<void>,
-        Warn: (log: string) => Promise<void>,
-        Debug: (log: string, json?: boolean, DebugMode?: boolean) => Promise<void>
-    }
+    export const Log: Log & Loggers;
     
     export const Regex: {
         SteamID64: RegExp;

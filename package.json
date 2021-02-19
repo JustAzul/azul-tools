@@ -1,6 +1,6 @@
 {
   "name": "azul-tools",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "description": "Some tools that i use in my projects..",
   "main": "index.js",
   "types": "index.d.ts",
