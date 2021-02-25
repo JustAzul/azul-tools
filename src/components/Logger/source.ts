@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const colour = require('colour');
 
 import { EOL } from 'os';
@@ -5,14 +6,14 @@ import Helper from 'azul-helper';
 
 export type LogTypes = "info" | "warn" | "trade" | "debug" | "error";
 
-async function storeLogData(logData: string, type: LogTypes , BaseDir: string = "history"): Promise<void> {
+async function storeLogData(logData: string, type: LogTypes , BaseDir = "history"): Promise<void> {
     const ts = await Helper.TimeStamp();
     const file = BaseDir + `/${type}/${ts.Date}.log`;
     logData += EOL; //Breakline
     Helper.storeFile(file, logData, "a"); //appending
 }
 
-async function _Log(log: string | JSON, type: LogTypes = "info", json: Boolean = false, DebugMode: Boolean = true) {
+async function _Log(log: string | JSON, type: LogTypes = "info", json = false, DebugMode = true) {
 
     const Label = type.toUpperCase();
     const LogType: LogTypes = type === "warn" ? "info" : type;
@@ -55,10 +56,10 @@ async function _Log(log: string | JSON, type: LogTypes = "info", json: Boolean =
     return console.log(message);
 
 }
-export const Warn = (log: string) => _Log(log, "warn");
-export const Trade = (log: string) => _Log(log, "trade");
-export const Debug = (log:string, json:Boolean = false, DebugMode:Boolean = true) => _Log(log, "debug", json, DebugMode);
-export const LogError = (log: string) => _Log(log, "error");
-export const Log = (log: string) => _Log(log, "info");
+export const Warn = (log: string): Promise<void> => _Log(log, "warn");
+export const Trade = (log: string): Promise<void> => _Log(log, "trade");
+export const Debug = (log:string, json = false, DebugMode = true): Promise<void> => _Log(log, "debug", json, DebugMode);
+export const LogError = (log: string): Promise<void> => _Log(log, "error");
+export const Log = (log: string): Promise<void> => _Log(log, "info");
 
 export default Log;

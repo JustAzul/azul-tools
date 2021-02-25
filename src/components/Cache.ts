@@ -1,11 +1,13 @@
 interface cache {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [Key: string]: any
 }
 
-let Temp: cache = {};
-let Timeouts: cache = {};
+const Temp: cache = {};
+const Timeouts: cache = {};
 
-function _Set(KeyID: string, Value: any, Expiration: number) {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
+function _Set(KeyID: string, Value: any, Expiration: number): void {
     Temp[KeyID] = Value;
     
     clearTimeout(Timeouts[KeyID]);
@@ -18,8 +20,9 @@ function _Set(KeyID: string, Value: any, Expiration: number) {
     }, Expiration);
 }
 
-function Get(KeyID: string) {
-    if (Temp.hasOwnProperty(KeyID)) return Temp[KeyID];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function Get(KeyID: string): any | undefined {
+    if (Object.prototype.hasOwnProperty.call(Temp, KeyID)) return Temp[KeyID];
     return undefined;
 }
 
