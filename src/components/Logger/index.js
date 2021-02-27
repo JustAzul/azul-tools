@@ -1,4 +1,7 @@
-const {Log, LogError, Trade, Warn, Debug} = require('./source');
+const {
+  Log, LogError, Trade, Warn, Debug,
+// eslint-disable-next-line import/no-unresolved
+} = require('./source');
 
 module.exports = Log;
 module.exports.Error = LogError;
