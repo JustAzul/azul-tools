@@ -1,17 +1,26 @@
 import Helper from 'azul-helper';
-import fs from 'fs';
+import { duration } from 'moment';
 import Log from './components/Logger';
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import storeChatData from './components/storeChatData';
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import Cache from './components/Cache';
 
-function Pattern() {
-  const encoding = 'utf-8';
-  const Filedir = fs.existsSync('./Pattern.txt') ? './Pattern.txt' : '../Pattern.txt';
-  const Graphic = fs.readFileSync(Filedir, { encoding });
+let Graphic: string | null;
+let Timer: any;
+
+function SetupPattern(newGraphic: string) {
+  Graphic = newGraphic;
+  Timer = setTimeout(() => { Graphic = null; }, duration(5, 'minutes').asMilliseconds());
+}
+
+function Pattern(Clear: boolean = true) {
   // eslint-disable-next-line no-console
   console.log(Graphic);
+  if (Clear) {
+    Graphic = null;
+    clearTimeout(Timer);
+  }
 }
 
 export default {
@@ -19,5 +28,6 @@ export default {
   storeChatData,
   Cache,
   ...Helper,
+  SetupPattern,
   Pattern,
 };
