@@ -1,6 +1,6 @@
 {
   "name": "azul-tools",
-  "version": "1.9.6",
+  "version": "1.9.7",
   "description": "Some tools that i use in my projects..",
   "main": "azul.js",
   "types": "index.d.ts",
@@ -23,8 +23,9 @@
     "moment": "^2.24.0"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=14.0.0"
   },
+  "files": ["Pattern.txt"],
   "devDependencies": {
     "@types/node": "^14.14.43",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
