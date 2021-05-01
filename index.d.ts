@@ -33,8 +33,7 @@ declare namespace AzulHelper {
     export function createPath(dir: PathLike, opts?: Mode | Options): Promise<string | undefined>;
     export function WriteFile(filePath: PathLike, content: string | NodeJS.ArrayBufferView, flag?: string): Promise<void>;
     export function storeChatData(UserID64: string, Message: string, Bot?: boolean, server_timestamp?: string, BaseDir?: string): Promise<void>;
-    export function SetupPattern(newGraphic: string): void;
-    export function Pattern(Clear?: boolean): void;
+    export function Pattern(): void;
 
     export const Log: Log & Loggers;
 
