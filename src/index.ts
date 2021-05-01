@@ -8,7 +8,8 @@ import Cache from './components/Cache';
 
 function Pattern() {
   const encoding = 'utf-8';
-  const Graphic = fs.readFileSync('./Pattern.txt', { encoding }) || fs.readFileSync('../Pattern.txt', { encoding });
+  const Filedir = fs.existsSync('./Pattern.txt') ? './Pattern.txt' : '../Pattern.txt';
+  const Graphic = fs.readFileSync(Filedir, { encoding });
   // eslint-disable-next-line no-console
   console.log(Graphic);
 }
