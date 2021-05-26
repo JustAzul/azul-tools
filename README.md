@@ -7,7 +7,7 @@
 
 ### Prerequisites
 
-I recommend to try this only in node V10/LTS or above.
+This is being used, and tested with Node V14+, it might not work in lower versions.
 
 ### Installing
 
