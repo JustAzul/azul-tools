@@ -20,6 +20,7 @@ declare namespace AzulHelper {
 
     export function isURL(str: string): Promise<boolean>;
     export function FastConcat(BaseArray: [], ToConcatArray: []): void;
+    export function AsyncFastConcat(BaseArray: [], ToConcatArray: []): Promise<void>;
     export function isTradeOfferURL(str: string): Promise<boolean>;
     export function isSteamID64(str: string): Promise<boolean>;
     export function isValidSteamID(value: any): Promise<boolean>;
