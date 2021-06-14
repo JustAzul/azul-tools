@@ -1,6 +1,6 @@
 {
   "name": "azul-tools",
-  "version": "1.9.17",
+  "version": "1.9.18",
   "description": "Some tools that i use in my projects..",
   "main": "azul.js",
   "types": "index.d.ts",
@@ -20,13 +20,13 @@
   "dependencies": {
     "azul-helper": "^1.9.7",
     "colour": "^0.7.1",
+    "figlet": "^1.5.0",
     "moment": "^2.24.0"
   },
   "engines": {
     "node": ">=14.0.0"
   },
   "files": [
-    "Pattern.txt",
     "*.js",
     "*.json",
     ".npmrc",
@@ -35,9 +35,10 @@
     "*.ts"
   ],
   "devDependencies": {
-    "@types/node": "^15.12.1",
-    "@typescript-eslint/eslint-plugin": "^4.26.0",
-    "@typescript-eslint/parser": "^4.26.0",
+    "@types/figlet": "^1.5.1",
+    "@types/node": "^15.12.2",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
     "eslint": "^7.28.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.4",

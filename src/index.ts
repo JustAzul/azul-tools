@@ -1,6 +1,5 @@
+import figlet from 'figlet';
 import Helper from 'azul-helper';
-import Path from 'path';
-import { readFileSync, existsSync } from 'fs';
 import Log from './components/Logger';
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import storeChatData from './components/storeChatData';
@@ -10,12 +9,18 @@ import Cache from './components/Cache';
 const colour = require('colour');
 
 function Pattern() {
-  const encoding = 'utf-8';
-  const FilePath = existsSync(Path.join(__dirname, '../', 'Pattern.txt')) ? Path.join(__dirname, '../', 'Pattern.txt') : Path.join(__dirname, './', 'Pattern.txt');
-  const TextGraphic = readFileSync(FilePath, { encoding });
+  const o = {
+    horizontalLayout: 'full',
+    verticalLayout: 'full',
+  };
+
+  // @ts-expect-error im lazy and im not adding this type
+  const text = figlet.textSync('Justazul.xyz', o);
   // eslint-disable-next-line no-console
-  console.log(colour.cyan(TextGraphic));
+  console.log(colour.cyan(text));
 }
+
+Pattern();
 
 export default {
   Log,
