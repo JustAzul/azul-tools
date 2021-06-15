@@ -20,8 +20,6 @@ function Pattern() {
   console.log(colour.cyan(text));
 }
 
-Pattern();
-
 export default {
   Log,
   storeChatData,
