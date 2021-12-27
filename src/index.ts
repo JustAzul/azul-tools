@@ -15,7 +15,7 @@ function Pattern() {
   };
 
   // @ts-expect-error im lazy and im not adding this type
-  const text = figlet.textSync('Justazul.xyz', o);
+  const text = figlet.textSync('Justazul.com', o);
   // eslint-disable-next-line no-console
   console.log(colour.cyan(text));
 }

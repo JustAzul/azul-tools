@@ -14,7 +14,7 @@ function Pattern() {
         horizontalLayout: 'full',
         verticalLayout: 'full',
     };
-    const text = figlet_1.default.textSync('Justazul.xyz', o);
+    const text = figlet_1.default.textSync('Justazul.com', o);
     console.log(colour.cyan(text));
 }
 exports.default = {
