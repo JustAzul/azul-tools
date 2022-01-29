@@ -1,6 +1,6 @@
 import { existsSync, PathLike, readFileSync } from 'graceful-fs';
 
-const Read = async (Filepath: PathLike) => {
+const Read = async (Filepath: PathLike): Promise<Record<string, unknown>> => {
   if (!existsSync(Filepath)) return {};
 
   const fileData = readFileSync(Filepath, 'utf-8');
