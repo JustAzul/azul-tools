@@ -2,6 +2,23 @@
 import { PathLike } from 'graceful-fs';
 import type { Mode, Options } from 'mkdirp';
 
+export type LogTypes = 'info' | 'warn' | 'trade' | 'debug' | 'error';
+
+export interface cache {
+    [Key: string]: unknown;
+}
+
+export interface timeouts {
+    [Key: string]: NodeJS.Timeout
+}
+export type ArraySplitedValue = unknown[];
+
+export interface timeStamp {
+  Date: string,
+  Time: string
+}
+
+
 declare type Log = (log: string) => Promise<void>;
 
 declare interface Loggers {
@@ -13,23 +30,20 @@ declare interface Loggers {
 
 declare namespace AzulHelper {
 
-    export function TimeStamp(date?: Date): Promise<{
-        Date: string;
-        Time: string;
-    }>;
+    export function TimeStamp(date?: Date): Promise<timeStamp>;
 
     export function isURL(str: string): Promise<boolean>;
     export function FastConcat(BaseArray: [], ToConcatArray: []): void;
     export function AsyncFastConcat(BaseArray: [], ToConcatArray: []): Promise<void>;
     export function isTradeOfferURL(str: string): Promise<boolean>;
     export function isSteamID64(str: string): Promise<boolean>;
-    export function isValidSteamID(value: any): Promise<boolean>;
+    export function isValidSteamID(value: string): Promise<boolean>;
     export function GetSteamID64FromURL(str: string): Promise<string | null>;
     export function formatNumber(number?: number): string;
-    export function readJSON(Filepath: PathLike): Promise<Object>;
-    export function readJSONSync(Filepath: PathLike): Promise<Object>;
+    export function readJSON(Filepath: PathLike): Promise<Promise<Record<string, unknown>>>;
+    export function readJSONSync(Filepath: PathLike): Promise<Promise<Record<string, unknown>>>;
     export function sleep(ms: number): Promise<void>;
-    export function SplitArray(Array: [], MaxSize: number): Promise<any[][]>;
+    export function SplitArray(Array: [], MaxSize: number): Promise<ArraySplitedValue>;
     export function storeFile(filePath: PathLike, content: string | NodeJS.ArrayBufferView, flag?: string): Promise<void>;
     export function createPath(dir: PathLike, opts?: Mode | Options): Promise<string | undefined>;
     export function WriteFile(filePath: PathLike, content: string | NodeJS.ArrayBufferView, flag?: string): Promise<void>;
@@ -45,8 +59,8 @@ declare namespace AzulHelper {
     };
 
     export const Cache: {
-        Get: (KeyID: string) => any,
-        Set: (KeyID: string, Value: any, Expiration: number) => void
+        Get: (KeyID: string) => unknown,
+        Set: (KeyID: string, Value: unknown, Expiration: number) => void
     };
 }
 
