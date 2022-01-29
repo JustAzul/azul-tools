@@ -1,24 +1,24 @@
 /* eslint-disable no-console */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 import { EOL } from 'os';
-import Helper from 'azul-helper';
+import { TimeStamp, storeFile } from 'azul-helper';
 
 const colour = require('colour');
 
 export type LogTypes = 'info' | 'warn' | 'trade' | 'debug' | 'error';
 
 async function storeLogData(logData: string, type: LogTypes, BaseDir = 'history'): Promise<void> {
-  const ts = await Helper.TimeStamp();
+  const ts = await TimeStamp();
   const file = `${BaseDir}/${type}/${ts.Date}.log`;
   //   logData += EOL; // Breakline
-  Helper.storeFile(file, logData + EOL, 'a'); // appending
+  storeFile(file, logData + EOL, 'a'); // appending
 }
 
 async function RawLog(log: string | JSON, type: LogTypes = 'info', json = false, DebugMode = true) {
   const Label = type.toUpperCase();
   const LogType: LogTypes = type === 'warn' ? 'info' : type;
 
-  const ts = await Helper.TimeStamp();
+  const ts = await TimeStamp();
   const time = ts.Time;
   const datetime = `${ts.Date} ${time}`;
 
