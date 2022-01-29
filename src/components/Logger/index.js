@@ -1,6 +1,8 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const {
   Log, LogError, Trade, Warn, Debug,
-// eslint-disable-next-line import/no-unresolved, import/extensions
 } = require('./source');
 
 module.exports = Log;
