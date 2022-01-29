@@ -1,11 +1,12 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import {
   isMainThread, Worker, parentPort, workerData,
 } from 'worker_threads';
 import type { PathLike } from 'graceful-fs';
-// eslint-disable-next-line import/no-unresolved, import/extensions
 import SyncReadJson from './SyncReadJson';
 
-const Read = async (Filepath: PathLike): Promise<Object> => {
+const Read = async (Filepath: PathLike): Promise<Record<string, unknown>> => {
   if (isMainThread) {
     return new Promise((resolve, reject) => {
       const o = {
