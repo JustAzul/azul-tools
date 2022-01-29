@@ -1,14 +1,15 @@
 interface cache {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    [Key: string]: any
+    [Key: string]: unknown;
+}
+interface timeouts {
+    [Key: string]: NodeJS.Timeout
 }
 
 const Temp: cache = {};
-const Timeouts: cache = {};
+const Timeouts: timeouts = {};
 
 // eslint-disable-next-line max-len
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
-function SetCache(KeyID: string, Value: any, Expiration: number): void {
+function SetCache(KeyID: string, Value: unknown, Expiration: number): void {
   Temp[KeyID] = Value;
 
   clearTimeout(Timeouts[KeyID]);
@@ -21,8 +22,7 @@ function SetCache(KeyID: string, Value: any, Expiration: number): void {
   }, Expiration);
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function Get(KeyID: string): any | undefined {
+function Get(KeyID: string): unknown | undefined {
   if (Object.prototype.hasOwnProperty.call(Temp, KeyID)) return Temp[KeyID];
   return undefined;
 }
