@@ -2,8 +2,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-console */
 import { EOL } from 'os';
-// @ts-expect-error unfortunately we have -> "import-extensions/no-unresolved"
-import { TimeStamp, storeFile } from '../Helper';
+import Helper from '../Helper';
 
 import type { LogTypes } from '../../..';
 
@@ -11,17 +10,17 @@ import type { LogTypes } from '../../..';
 const colour = require('colour');
 
 async function storeLogData(logData: string, type: LogTypes, BaseDir = 'history'): Promise<void> {
-  const ts = await TimeStamp();
+  const ts = await Helper.TimeStamp();
   const file = `${BaseDir}/${type}/${ts.Date}.log`;
   //   logData += EOL; // Breakline
-  storeFile(file, logData + EOL, 'a'); // appending
+  Helper.storeFile(file, logData + EOL, 'a'); // appending
 }
 
 async function RawLog(log: string | JSON, type: LogTypes = 'info', json = false, DebugMode = true) {
   const Label = type.toUpperCase();
   const LogType: LogTypes = type === 'warn' ? 'info' : type;
 
-  const ts = await TimeStamp();
+  const ts = await Helper.TimeStamp();
   const time = ts.Time;
   const datetime = `${ts.Date} ${time}`;
 
