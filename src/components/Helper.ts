@@ -1,3 +1,5 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import moment from 'moment';
 import numeral from 'numeral';
 import SteamID from 'steamid';
@@ -5,10 +7,14 @@ import createPath from 'mkdirp';
 import { PathLike, createWriteStream, existsSync } from 'graceful-fs';
 import { dirname } from 'path';
 
-// eslint-disable-next-line import/no-unresolved, import/extensions
 import readJSON from './ReadJson';
-// eslint-disable-next-line import/no-unresolved, import/extensions
 import readJSONSync from './SyncReadJson';
+
+declare type ArraySplitedValue = unknown[];
+interface timeStamp {
+  Date: string,
+  Time: string
+}
 
 const Regx = {
   SteamID64: /[0-9]{17}/,
@@ -37,7 +43,7 @@ function AsyncFastConcat(BaseArray: [], ToConcatArray: []): Promise<void> {
   });
 }
 
-function FastConcat(BaseArray: [], ToConcatArray: []) {
+function FastConcat(BaseArray: [], ToConcatArray: []): void {
   const BaseLenght = BaseArray.length;
   // eslint-disable-next-line no-param-reassign
   BaseArray.length += ToConcatArray.length;
@@ -47,8 +53,7 @@ function FastConcat(BaseArray: [], ToConcatArray: []) {
   }
 }
 
-// eslint-disable-next-line no-undef
-async function storeFile(Path: PathLike, content: string | NodeJS.ArrayBufferView, flag: string = 'a'): Promise<void> {
+async function storeFile(Path: PathLike, content: string | NodeJS.ArrayBufferView, flag = 'a'): Promise<void> {
   const o = {
     flags: flag,
   };
@@ -64,9 +69,9 @@ async function storeFile(Path: PathLike, content: string | NodeJS.ArrayBufferVie
   });
 }
 
-function SplitArray(Array: [], MaxSize: number): Promise<any[][]> {
+function SplitArray(Array: [], MaxSize: number): Promise<ArraySplitedValue> {
   return new Promise((resolve) => {
-    const SplitedArray: any[][] = [];
+    const SplitedArray: ArraySplitedValue = [];
 
     do {
       const Split = Array.splice(0, Math.min(Array.length, MaxSize));
@@ -83,11 +88,11 @@ function sleep(ms: number): Promise<void> {
   });
 }
 
-async function isURL(str: string) {
+async function isURL(str: string): Promise<boolean> {
   return Regx.Url.test(str);
 }
 
-async function isTradeOfferURL(str: string) {
+async function isTradeOfferURL(str: string): Promise<boolean> {
   for (let i = 0; i < Regx.TradeOfferUrl.length; i += 1) {
     const Regex = Regx.TradeOfferUrl[i];
     const Result = Regex.test(str);
@@ -97,7 +102,7 @@ async function isTradeOfferURL(str: string) {
   return false;
 }
 
-async function isValidSteamID(value: any) {
+async function isValidSteamID(value: string): Promise<boolean> {
   try {
     return new SteamID(value).isValid();
   } catch {
@@ -105,22 +110,22 @@ async function isValidSteamID(value: any) {
   }
 }
 
-async function isSteamID64(str: string) {
+async function isSteamID64(str: string): Promise<boolean> {
   const isValid = await isValidSteamID(str);
   if (!isValid) return false;
   return Regx.SteamID64.test(str);
 }
 
-async function GetSteamID64FromURL(str: string) {
+async function GetSteamID64FromURL(str: string): Promise<string | null> {
   const m = str.match(Regx.SteamID64);
   if (m) return m[0];
   return m;
 }
 
-async function TimeStamp(date: Date = new Date()) {
+async function TimeStamp(date: Date = new Date()): Promise<timeStamp> {
   const ts = moment(date);
 
-  const o = {
+  const o: timeStamp = {
     Date: ts.format('YYYY-MM-DD'),
     Time: ts.format('HH:mm:ss'),
   };
@@ -128,7 +133,7 @@ async function TimeStamp(date: Date = new Date()) {
   return o;
 }
 
-function formatNumber(number: number = 1000) {
+function formatNumber(number: number): string {
   return numeral(number).format('0,0');
 }
 
