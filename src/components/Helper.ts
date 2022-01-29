@@ -10,11 +10,7 @@ import { dirname } from 'path';
 import readJSON from './ReadJson';
 import readJSONSync from './SyncReadJson';
 
-declare type ArraySplitedValue = unknown[];
-interface timeStamp {
-  Date: string,
-  Time: string
-}
+import type { ArraySplitedValue, timeStamp } from '../..';
 
 const Regx = {
   SteamID64: /[0-9]{17}/,
@@ -137,7 +133,7 @@ function formatNumber(number: number): string {
   return numeral(number).format('0,0');
 }
 
-const Helper = {
+export default {
   TimeStamp,
   isURL,
   isTradeOfferURL,
@@ -156,5 +152,3 @@ const Helper = {
   FastConcat,
   AsyncFastConcat,
 };
-
-export default Helper;

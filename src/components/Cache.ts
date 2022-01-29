@@ -1,9 +1,4 @@
-interface cache {
-    [Key: string]: unknown;
-}
-interface timeouts {
-    [Key: string]: NodeJS.Timeout
-}
+import type { cache, timeouts } from '../..';
 
 const Temp: cache = {};
 const Timeouts: timeouts = {};

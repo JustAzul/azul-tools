@@ -1,11 +1,14 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 /* eslint-disable no-console */
 import { EOL } from 'os';
-import { TimeStamp, storeFile } from 'azul-helper';
+// @ts-expect-error unfortunately we have -> "import-extensions/no-unresolved"
+import { TimeStamp, storeFile } from '../Helper';
+
+import type { LogTypes } from '../../..';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const colour = require('colour');
-
-export type LogTypes = 'info' | 'warn' | 'trade' | 'debug' | 'error';
 
 async function storeLogData(logData: string, type: LogTypes, BaseDir = 'history'): Promise<void> {
   const ts = await TimeStamp();
