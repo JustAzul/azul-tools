@@ -1,5 +1,8 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import { EOL } from 'os';
-import { TimeStamp, storeFile } from 'azul-helper';
+// @ts-expect-error unfortunately we have -> "import-extensions/no-unresolved"
+import { TimeStamp, storeFile } from './Helper';
 
 // eslint-disable-next-line camelcase
 async function storeChatData(UserID64: string, Message: string, Bot = false, server_timestamp: string, BaseDir = 'history'): Promise<void> {
