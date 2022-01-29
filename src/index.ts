@@ -1,5 +1,6 @@
 import figlet from 'figlet';
-import Helper from 'azul-helper';
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import Helper from './components/Helper';
 import Log from './components/Logger';
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import storeChatData from './components/storeChatData';
