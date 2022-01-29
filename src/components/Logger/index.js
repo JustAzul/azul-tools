@@ -1,6 +1,6 @@
 const {
   Log, LogError, Trade, Warn, Debug,
-// eslint-disable-next-line import/no-unresolved
+// eslint-disable-next-line import/no-unresolved, import/extensions
 } = require('./source');
 
 module.exports = Log;
