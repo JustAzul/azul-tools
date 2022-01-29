@@ -7,9 +7,10 @@ import storeChatData from './components/storeChatData';
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import Cache from './components/Cache';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const colour = require('colour');
 
-function Pattern() {
+function Pattern(): void {
   const o = {
     horizontalLayout: 'full',
     verticalLayout: 'full',
