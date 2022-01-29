@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 import { EOL } from 'os';
 import { TimeStamp, storeFile } from 'azul-helper';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const colour = require('colour');
 
 export type LogTypes = 'info' | 'warn' | 'trade' | 'debug' | 'error';
@@ -22,11 +22,12 @@ async function RawLog(log: string | JSON, type: LogTypes = 'info', json = false,
   const time = ts.Time;
   const datetime = `${ts.Date} ${time}`;
 
-  // eslint-disable-next-line no-param-reassign
-  if (json) log = JSON.stringify(log);
+  const LogText = json
+    ? JSON.stringify(log)
+    : log;
 
-  const text = `${datetime} ${Label}${(type === 'info' || type === 'warn') ? ' ' : ''} => ${log}`;
-  const logText = `${time}: ${log}`;
+  const text = `${datetime} ${Label}${(type === 'info' || type === 'warn') ? ' ' : ''} => ${LogText}`;
+  const logText = `${time}: ${LogText}`;
 
   storeLogData(logText, LogType);
 
