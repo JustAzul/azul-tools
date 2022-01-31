@@ -17,6 +17,10 @@
     "type": "git",
     "url": "https://github.com/JustAzul/azul-tools.git"
   },
+  "bugs": {
+    "url": "https://github.com/JustAzul/azul-tools/issues"
+  },
+  "homepage": "https://github.com/JustAzul/azul-tools",
   "license": "MIT",
   "dependencies": {
     "colour": "^0.7.1",
