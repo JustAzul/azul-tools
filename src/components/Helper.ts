@@ -1,16 +1,15 @@
+import type { ArraySplitedValue, timeStamp } from '../..';
+import { PathLike, createWriteStream, existsSync } from 'graceful-fs';
+
+import SteamID from 'steamid';
+import createPath from 'mkdirp';
+import { dirname } from 'path';
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 import moment from 'moment';
 import numeral from 'numeral';
-import SteamID from 'steamid';
-import createPath from 'mkdirp';
-import { PathLike, createWriteStream, existsSync } from 'graceful-fs';
-import { dirname } from 'path';
-
 import readJSON from './ReadJson';
 import readJSONSync from './SyncReadJson';
-
-import type { ArraySplitedValue, timeStamp } from '../..';
 
 const Regx = {
   SteamID64: /[0-9]{17}/,
@@ -65,7 +64,7 @@ async function storeFile(Path: PathLike, content: string | NodeJS.ArrayBufferVie
   });
 }
 
-function SplitArray(Array: [], MaxSize: number): Promise<ArraySplitedValue> {
+function SplitArray(Array: [any], MaxSize: number): Promise<ArraySplitedValue> {
   return new Promise((resolve) => {
     const SplitedArray: ArraySplitedValue = [];
 
