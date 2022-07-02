@@ -1,14 +1,14 @@
-import tools from '..';
+import { Cache } from '..';
 
 describe('test Cache', () => {
     test('Set/Get', () => {
       const key = Math.random().toString();
       const value = Math.random();
   
-      tools.Cache.Set(key, value, Number.MAX_SAFE_INTEGER)
+      Cache.Set(key, value, Number.MAX_SAFE_INTEGER)
   
       expect(
-        tools.Cache.Get(key)
+        Cache.Get(key)
       ).toBe(value)
     })
   
@@ -22,7 +22,7 @@ describe('test Cache', () => {
       jest.useFakeTimers();
       jest.spyOn(global, 'setTimeout');
   
-      tools.Cache.Set(key, value, expireTime)
+      Cache.Set(key, value, expireTime)
   
       expect(setTimeout).toHaveBeenCalledTimes(1);
       expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), expireTime);
@@ -30,7 +30,7 @@ describe('test Cache', () => {
       jest.runAllTimers();
   
       expect(
-        tools.Cache.Get(key)
+        Cache.Get(key)
       ).toBe(undefined)
     })
   })
