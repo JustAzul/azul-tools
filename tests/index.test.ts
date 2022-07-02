@@ -23,11 +23,13 @@ describe('TimeStamp()', () => {
   for (let i = 0; i < toTest.length; i++) {
     test(toTest[i].input.toString(), async () => {
       expect(
-          await tools.TimeStamp(
-            toTest[i].input
+          await tools.TimeStamp(toTest[i].input)
+        )
+        .toEqual(
+          expect.objectContaining(
+            toTest[i].expectedResult
           )
         )
-        .toEqual(toTest[i].expectedResult)
     })
   }
 
@@ -69,7 +71,11 @@ describe('SplitArray()', () => {
       );
 
       expect(Result)
-        .toEqual(toTest[i].expectedResult);
+        .toEqual(
+          expect.objectContaining(
+            toTest[i].expectedResult
+          )
+        );
     })
   }
 })
