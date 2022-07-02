@@ -1,6 +1,44 @@
 import fs from 'fs/promises';
 import tools from '..';
 
+describe('isTradeOfferURL()', () => {
+  const toTest = [{
+    input: 'https://trade.justazul.com',
+    expectedResult: false
+  },
+  {
+    input: 'https://steamcommunity.com/tradeoffer/new/?partner=217734041&token=8O2Nj7Jv',
+    expectedResult: true
+  },
+  {
+    input: 'https://steamcommunity.com/tradeoffer/new/?partner=217734041&token=8O2Nj7Jv',
+    expectedResult: true
+  },
+  {
+    input: 'https://steamcommunity.com/tradeoffer/new/?token=8O2Nj7Jv&partner=217734041',
+    expectedResult: true
+  },
+  {
+    input: 'http://steamcommunity.com/tradeoffer/new/?token=8O2Nj7Jv&partner=217734041',
+    expectedResult: true
+  },
+  {
+    input: 'http://steamcommunity.com/tradeoffer/new/',
+    expectedResult: false
+  }];
+
+  for (let i = 0; i < toTest.length; i++) {
+    test(toTest[i].input, async () => {
+      expect(
+          await tools.isTradeOfferURL(
+            toTest[i].input
+          )
+        )
+        .toBe(toTest[i].expectedResult);
+    })
+  }
+})
+
 describe('FastConcat()', () => {
   const defaultArray = [1, 2, 3];
   const toConcat = [4, 5, 6];
