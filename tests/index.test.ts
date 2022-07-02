@@ -1,6 +1,30 @@
 import fs from 'fs/promises';
 import tools from '..';
 
+describe('GetSteamID64FromURL()', () => {
+  const toTest = [{
+    input: 'https://steamcommunity.com/profiles/76561198358742001',
+    expectedResult: '76561198358742001'
+  },
+  {
+    input: 'https://steamcommunity.com/profiles/76561198358742001/',
+    expectedResult: '76561198358742001'
+  },
+  {
+    input: '://steamcommunity.com/profiles/76561198358742001',
+    expectedResult: '76561198358742001'
+  }];
+
+  for (let i = 0; i < toTest.length; i++) {
+    test(toTest[i].input, async () => {
+      expect(
+          await tools.GetSteamID64FromURL(toTest[i].input)
+        )
+        .toBe(toTest[i].expectedResult)
+    })
+  }
+})
+
 describe('isTradeOfferURL()', () => {
   const toTest = [{
       input: 'https://trade.justazul.com',
