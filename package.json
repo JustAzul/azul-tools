@@ -38,6 +38,7 @@
     "*.js",
     "*.json",
     ".npmrc",
+    "index.d.ts",
     "/dist/*"
   ],
   "devDependencies": {
