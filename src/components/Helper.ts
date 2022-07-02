@@ -17,7 +17,7 @@ const Regx = {
   Url: /[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/,
 };
 
-function AsyncFastConcat(BaseArray: [], ToConcatArray: []): Promise<void> {
+function AsyncFastConcat(BaseArray: any[], ToConcatArray: [any]): Promise<void> {
   return new Promise((resolve) => {
     const BaseLenght = BaseArray.length;
     // eslint-disable-next-line no-param-reassign
@@ -38,7 +38,7 @@ function AsyncFastConcat(BaseArray: [], ToConcatArray: []): Promise<void> {
   });
 }
 
-function FastConcat(BaseArray: [], ToConcatArray: []): void {
+function FastConcat(BaseArray: any[], ToConcatArray: [any]): void {
   const BaseLenght = BaseArray.length;
   // eslint-disable-next-line no-param-reassign
   BaseArray.length += ToConcatArray.length;

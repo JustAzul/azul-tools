@@ -1,6 +1,17 @@
 import fs from 'fs/promises';
 import tools from '..';
 
+describe('FastConcat()', () => {
+  const defaultArray = [1, 2, 3];
+  const toConcat = [4, 5, 6];
+
+  test('sync', () => {
+    const testArray = [...defaultArray];
+
+    tools.FastConcat(testArray, toConcat);
+  })
+})
+
 describe('TimeStamp()', () => {
   const generateExpectedResult = (testDate: Date) => {
     return {
