@@ -17,7 +17,7 @@ describe('test Cache', () => {
       const key = Math.random().toString();
       const value = Math.random();
   
-      const expireTime = 1000;
+      const expireTime = parseInt((Math.random() * 1000).toString(), 1000);
   
       jest.useFakeTimers();
       jest.spyOn(global, 'setTimeout');
