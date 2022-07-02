@@ -5,10 +5,31 @@ describe('FastConcat()', () => {
   const defaultArray = [1, 2, 3];
   const toConcat = [4, 5, 6];
 
+  const expectedResult = [
+    ...defaultArray,
+    ...toConcat
+  ];
+
   test('sync', () => {
-    const testArray = [...defaultArray];
+    const testArray = [...defaultArray]; // clone
 
     tools.FastConcat(testArray, toConcat);
+    expect(testArray)
+      .toEqual(
+        expect.objectContaining(expectedResult)
+      );
+
+  })
+
+  test('async', async () => {
+    const testArray = [...defaultArray]; // clone
+
+    await tools.AsyncFastConcat(testArray, toConcat);
+    expect(testArray)
+      .toEqual(
+        expect.objectContaining(expectedResult)
+      );
+
   })
 })
 
@@ -16,7 +37,7 @@ describe('TimeStamp()', () => {
   const generateExpectedResult = (testDate: Date) => {
     return {
       Date: `${testDate.getFullYear()}-${testDate.toLocaleDateString(undefined, {month: '2-digit'})}-${testDate.toLocaleDateString(undefined, {day: '2-digit'})}`,
-      Time: `${testDate.toLocaleTimeString(undefined, {hour: '2-digit', hour12: false})}:${testDate.toLocaleTimeString(undefined, {minute: '2-digit'})}:${testDate.toLocaleTimeString(undefined, {second: '2-digit'})}`
+      Time: `${testDate.toLocaleTimeString(undefined, {hour: '2-digit', hour12: false})}:${testDate.toLocaleTimeString(undefined, {minute: '2-digit'})}:${testDate.toLocaleTimeString(undefined, {second: 'numeric'})}`
     }
   }
 
@@ -32,8 +53,8 @@ describe('TimeStamp()', () => {
     generateTestCase(
       new Date(
         'Sat Jul 02 2022 16:19:59 GMT-0300'
-        )
-      ),
+      )
+    ),
   ];
 
   for (let i = 0; i < toTest.length; i++) {
