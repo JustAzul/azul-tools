@@ -75,7 +75,7 @@ describe('TimeStamp()', () => {
   const generateExpectedResult = (testDate: Date) => {
     return {
       Date: `${testDate.getFullYear()}-${testDate.toLocaleDateString(undefined, {month: '2-digit'})}-${testDate.toLocaleDateString(undefined, {day: '2-digit'})}`,
-      Time: `${testDate.toLocaleTimeString(undefined, {hour: '2-digit', hour12: false})}:${testDate.toLocaleTimeString(undefined, {minute: '2-digit'})}:${testDate.toLocaleTimeString(undefined, {second: 'numeric'})}`
+      Time: `${testDate.toLocaleTimeString(undefined, {hour: '2-digit', hour12: false})}:${testDate.toLocaleTimeString(undefined, {minute: '2-digit'})}:${testDate.toLocaleTimeString(undefined, {second: '2-digit'})}`
     }
   }
 
