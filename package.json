@@ -38,9 +38,7 @@
     "*.js",
     "*.json",
     ".npmrc",
-    "/dist/*",
-    "/src/*",
-    "*.ts"
+    "/dist/*"
   ],
   "devDependencies": {
     "@types/figlet": "^1.5.1",
