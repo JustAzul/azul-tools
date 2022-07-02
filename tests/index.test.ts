@@ -280,7 +280,7 @@ test('test sleep timer', () => {
   jest.useFakeTimers();
   jest.spyOn(global, 'setTimeout');
 
-  const timeToWait = parseInt((Math.random() * 1000).toString(), 10); //1 sec
+  const timeToWait = parseInt((Math.random() * 1000).toString(), 10);
   tools.sleep(timeToWait);
 
   expect(setTimeout).toHaveBeenCalledTimes(1);
