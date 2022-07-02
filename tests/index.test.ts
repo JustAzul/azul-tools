@@ -18,6 +18,11 @@ describe('TimeStamp()', () => {
 
   const toTest = [
     generateTestCase(new Date()), // current time
+    generateTestCase(
+      new Date(
+        'Sat Jul 02 2022 16:19:59 GMT-0300'
+        )
+      ),
   ];
 
   for (let i = 0; i < toTest.length; i++) {
