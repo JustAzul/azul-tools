@@ -276,17 +276,6 @@ describe('formatNumber()', () => {
 
 })
 
-test('test sleep timer', () => {
-  jest.useFakeTimers();
-  jest.spyOn(global, 'setTimeout');
-
-  const timeToWait = parseInt((Math.random() * 1000).toString(), 10);
-  tools.sleep(timeToWait);
-
-  expect(setTimeout).toHaveBeenCalledTimes(1);
-  expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), timeToWait);
-})
-
 describe('isSteamID64()', () => {
   const toTest = [{
       inputValue: '6544654',
