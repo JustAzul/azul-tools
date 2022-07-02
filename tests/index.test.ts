@@ -10,6 +10,46 @@ async function doesFolderExists(targetPath: string): Promise < boolean > {
   }
 }
 
+describe('SplitArray', () => {
+  const testArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  const toTest = [{
+      input: 1,
+      expectedResult: [
+        [1],
+        [2],
+        [3],
+        [4],
+        [5],
+        [6],
+        [7],
+        [8],
+        [9],
+        [10],
+      ]
+    },
+    {
+      input: 5,
+      expectedResult: [
+        [1, 2, 3, 4, 5],
+        [6, 7, 8, 9, 10],
+      ]
+    }
+  ];
+
+  for (let i = 0; i < toTest.length; i++) {
+    test(toTest[i].input.toString(), async () => {
+      const Result = await tools.SplitArray(
+        [...testArray],
+        toTest[i].input
+      );
+
+      expect(Result)
+        .toEqual(toTest[i].expectedResult);
+    })
+  }
+})
+
 describe('formatNumber()', () => {
   const toTest = [{
       inputValue: 1,
