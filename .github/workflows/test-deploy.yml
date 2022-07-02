@@ -16,6 +16,7 @@ jobs:
         with:
           node-version: 14
       - run: npm ci
+      - run: npm run build
       - run: npm test
 
   publish-npm:
@@ -33,6 +34,9 @@ jobs:
       
       - name: Install dependencies
         run: npm ci
+      
+      - name: Build
+        run: npm run build
       
       - name: Clean useless production files
         run: rm -rf ./src ./tests ./.github .gitignore jest.config.js tsconfig.json .wakatime-project .eslint*
