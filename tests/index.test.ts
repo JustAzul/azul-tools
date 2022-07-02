@@ -1,6 +1,46 @@
 import fs from 'fs/promises';
 import tools from '..';
 
+describe('isValidSteamID()', ()=>{
+  const toTest = [{
+    input: '76561198358742001',
+    expectedResult: true
+  },
+  {
+    input: 'https://steamcommunity.com/profiles/76561198358742001/',
+    expectedResult: false
+  },
+  {
+    input: '://steamcommunity.com/profiles/76561198358742001',
+    expectedResult: false
+  },
+  {
+    input: '6561198358742001',
+    expectedResult: false
+  },
+  {
+    input: '7656119835874200',
+    expectedResult: false
+  },
+  {
+    input: 'STEAM_0:1:199238136',
+    expectedResult: true
+  },
+  {
+    input: '[U:1:398476273]',
+    expectedResult: true
+  }];
+
+  for (let i = 0; i < toTest.length; i++) {
+    test(toTest[i].input, async () => {
+      expect(
+          await tools.isValidSteamID(toTest[i].input)
+        )
+        .toBe(toTest[i].expectedResult)
+    })
+  }
+})
+
 describe('GetSteamID64FromURL()', () => {
   const toTest = [{
     input: 'https://steamcommunity.com/profiles/76561198358742001',
