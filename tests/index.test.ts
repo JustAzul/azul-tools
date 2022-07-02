@@ -1,16 +1,40 @@
 import fs from 'fs/promises';
 import tools from '..';
 
-async function doesFolderExists(targetPath: string): Promise < boolean > {
-  try {
-    await fs.stat(targetPath);
-    return true;
-  } catch {
-    return false;
+describe('TimeStamp()', () => {
+  const generateExpectedResult = (testDate: Date) => {
+    return {
+      Date: `${testDate.getFullYear()}-${testDate.toLocaleDateString(undefined, {month: '2-digit'})}-${testDate.toLocaleDateString(undefined, {day: '2-digit'})}`,
+      Time: `${testDate.toLocaleTimeString(undefined, {hour: '2-digit', hour12: false})}:${testDate.toLocaleTimeString(undefined, {minute: '2-digit'})}:${testDate.toLocaleTimeString(undefined, {second: '2-digit'})}`
+    }
   }
-}
 
-describe('SplitArray', () => {
+  const generateTestCase = (testDate: Date) => {
+    return {
+      input: testDate,
+      expectedResult: generateExpectedResult(testDate)
+    }
+  }
+
+  const toTest = [
+    generateTestCase(new Date()), // current time
+  ];
+
+  for (let i = 0; i < toTest.length; i++) {
+    test(toTest[i].input.toString(), async () => {
+      expect(
+          await tools.TimeStamp(
+            toTest[i].input
+          )
+        )
+        .toEqual(toTest[i].expectedResult)
+    })
+  }
+
+
+})
+
+describe('SplitArray()', () => {
   const testArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   const toTest = [{
@@ -245,6 +269,15 @@ describe('test store/read json file', () => {
 describe('test folder creation', () => {
   const targetPath = `./tests/${(Math.random() * 100).toString()}`;
   const targetSubFolder = `./${(Math.random() * 100).toString()}/${(Math.random() * 100).toString()}/${(Math.random() * 100).toString()}`;
+
+  const doesFolderExists = async (targetPath: string): Promise < boolean > => {
+    try {
+      await fs.stat(targetPath);
+      return true;
+    } catch {
+      return false;
+    }
+  }
 
   describe('folder that does not exists', () => {
     test('folder should not exist', async () => {
