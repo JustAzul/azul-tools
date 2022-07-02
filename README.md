@@ -1,10 +1,13 @@
 # Azul Tools
 
-### Some tools that i use in my bot/projects
+<div align='center'>
+<p> Some tools that i currently use in my projects, feel free to use, or to open a pull request :) </p>
 
 [![npm version](https://img.shields.io/npm/v/azul-tools.svg)](https://npmjs.com/package/azul-tools)
 [![npm downloads](https://img.shields.io/npm/dm/azul-tools.svg)](https://npmjs.com/package/azul-tools)
 [![license](https://img.shields.io/npm/l/azul-tools.svg)](https://github.com/JustAzul/azul-tools/blob/master/LICENSE)
+
+</div>
 
 ### Prerequisites
 
