@@ -13,7 +13,10 @@ function SetCache(KeyID: string, Value: unknown, Expiration: number): void {
   Timeouts[KeyID] = setTimeout(() => {
     delete Temp[KeyID];
     delete Timeouts[KeyID];
-    global?.gc();
+
+    if (global.gc && typeof global.gc ==='function') {
+      global?.gc();
+    }
   }, Expiration);
 }
 
