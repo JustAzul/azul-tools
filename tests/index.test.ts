@@ -3,29 +3,30 @@ import tools from '..';
 
 describe('isTradeOfferURL()', () => {
   const toTest = [{
-    input: 'https://trade.justazul.com',
-    expectedResult: false
-  },
-  {
-    input: 'https://steamcommunity.com/tradeoffer/new/?partner=217734041&token=8O2Nj7Jv',
-    expectedResult: true
-  },
-  {
-    input: 'https://steamcommunity.com/tradeoffer/new/?partner=217734041&token=8O2Nj7Jv',
-    expectedResult: true
-  },
-  {
-    input: 'https://steamcommunity.com/tradeoffer/new/?token=8O2Nj7Jv&partner=217734041',
-    expectedResult: true
-  },
-  {
-    input: 'http://steamcommunity.com/tradeoffer/new/?token=8O2Nj7Jv&partner=217734041',
-    expectedResult: true
-  },
-  {
-    input: 'http://steamcommunity.com/tradeoffer/new/',
-    expectedResult: false
-  }];
+      input: 'https://trade.justazul.com',
+      expectedResult: false
+    },
+    {
+      input: 'https://steamcommunity.com/tradeoffer/new/?partner=217734041&token=8O2Nj7Jv',
+      expectedResult: true
+    },
+    {
+      input: 'https://steamcommunity.com/tradeoffer/new/?partner=217734041&token=8O2Nj7Jv',
+      expectedResult: true
+    },
+    {
+      input: 'https://steamcommunity.com/tradeoffer/new/?token=8O2Nj7Jv&partner=217734041',
+      expectedResult: true
+    },
+    {
+      input: 'http://steamcommunity.com/tradeoffer/new/?token=8O2Nj7Jv&partner=217734041',
+      expectedResult: true
+    },
+    {
+      input: 'http://steamcommunity.com/tradeoffer/new/',
+      expectedResult: false
+    }
+  ];
 
   for (let i = 0; i < toTest.length; i++) {
     test(toTest[i].input, async () => {
@@ -75,7 +76,7 @@ describe('TimeStamp()', () => {
   const generateExpectedResult = (testDate: Date) => {
     return {
       Date: `${testDate.getFullYear()}-${testDate.toLocaleDateString(undefined, {month: '2-digit'})}-${testDate.toLocaleDateString(undefined, {day: '2-digit'})}`,
-      Time: `${testDate.toLocaleTimeString(undefined, {hour: '2-digit', hour12: false})}:${testDate.toLocaleTimeString(undefined, {minute: '2-digit'})}:${testDate.toLocaleTimeString(undefined, {second: '2-digit'})}`
+      Time: `${testDate.toLocaleTimeString(undefined, {hour: '2-digit', hour12: false, minute: '2-digit', second: '2-digit', })}`
     }
   }
 
@@ -90,7 +91,17 @@ describe('TimeStamp()', () => {
     generateTestCase(new Date()), // current time
     generateTestCase(
       new Date(
-        'Sat Jul 02 2022 16:19:59 GMT-0300'
+        'Sat Jul 02 2022 16:19:05 GMT-0300'
+      )
+    ),
+    generateTestCase(
+      new Date(
+        'Sat Jul 02 2022 16:09:10 GMT-0300'
+      )
+    ),
+    generateTestCase(
+      new Date(
+        'Sat Jul 02 2022 06:19:10 GMT-0300'
       )
     ),
   ];
