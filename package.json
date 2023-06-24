@@ -27,7 +27,7 @@
     "figlet": "^1.6.0",
     "graceful-fs": "^4.2.11",
     "mkdirp": "^1.0.4",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "numeral": "^2.0.6",
     "steamid": "^1.1.3"
   },
