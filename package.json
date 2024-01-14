@@ -24,7 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "colour": "^0.7.1",
-    "figlet": "^1.6.0",
+    "figlet": "^1.7.0",
     "graceful-fs": "^4.2.11",
     "mkdirp": "^1.0.4",
     "moment": "^2.29.4",
